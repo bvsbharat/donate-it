@@ -77,7 +77,7 @@ export class PostCardComponent implements OnInit {
     let data = donationData;
     post.donationMessage = "";
     var payLoad = {
-        quantityOffered: data.quantity,
+        quantityOffered: parseInt(data.quantity),
         scheduledOn : new Date(data.date.year, data.date.month,data.date.day),
         donationBy: this.userId,
         post: post._id

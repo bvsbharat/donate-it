@@ -6,11 +6,23 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyAM89Zlk-PJx_JnKL6GtmmpqHi2jfACpvc",
-    authDomain: "newproject-d7e0f.firebaseapp.com",
-    databaseURL: "https://newproject-d7e0f.firebaseio.com",
-    projectId: "newproject-d7e0f",
-    storageBucket: "newproject-d7e0f.appspot.com",
+    apiKey: "AIzaSyCbiBhnCpj6pEAf4_94cJwN5oeVkQz96Dw",
+    authDomain: "donateit-ac4e1.appspot.com",
+    databaseURL: "https://donateit-ac4e1.firebaseio.com",
+    projectId: "donateit-ac4e1",
+    storageBucket: "donateit-ac4e1.appspot.com",
     messagingSenderId: "81354546269"
   }
 };
+
+
+
+
+// firebase: {
+//   apiKey: "AIzaSyAM89Zlk-PJx_JnKL6GtmmpqHi2jfACpvc",
+//   authDomain: "newproject-d7e0f.firebaseapp.com",
+//   databaseURL: "https://newproject-d7e0f.firebaseio.com",
+//   projectId: "newproject-d7e0f",
+//   storageBucket: "newproject-d7e0f.appspot.com",
+//   messagingSenderId: "81354546269"
+// }

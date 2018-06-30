@@ -7,7 +7,7 @@
 	<div class="row">
 		<div class="col col-xl-12">
 		</div>
-    <div class="ui-block">
+    <div class="ui-block ui-block-deatils">
 
 
         <article class="hentry post">
@@ -37,12 +37,7 @@
                 <li>
                   <a href="javascript:void(0)" (click)="deletePost(postData._id)">Delete Post</a>
                 </li>
-                <li>
-                  <a href="javascript:void(0)">Turn Off Notifications</a>
-                </li>
-                <li>
-                  <a href="javascript:void(0)">Select as Featured</a>
-                </li>
+               
               </ul>
             </div>
 
@@ -53,26 +48,7 @@
 
           <div class="col-md-8 mr-auto ml-auto">
               <div class="card page-carousel">
-                  <ngb-carousel *ngIf="postData.images.length===0">
-                      <ng-template ngbSlide>
-                          <img src="../assets/img/soroush-karimi.jpg" alt="Random first slide">
-                          <div class="carousel-caption">
-                              <p>Somewhere</p>
-                          </div>
-                      </ng-template>
-                      <ng-template ngbSlide>
-                          <img src="../assets/img/federico-beccari.jpg" alt="Random second slide">
-                          <div class="carousel-caption">
-                              <p>Somewhere else</p>
-                          </div>
-                      </ng-template>
-                      <ng-template ngbSlide>
-                          <img src="../assets/img/joshua-stannard.jpg" alt="Random third slide">
-                          <div class="carousel-caption">
-                              <p>Here it is</p>
-                          </div>
-                      </ng-template>
-                  </ngb-carousel>
+                  
                   <ngb-carousel *ngIf="postData.images.length>0">
                       <ng-template ngbSlide *ngFor="let entry of postData.images; let i = index">
                           <img src="{{entry.reference}}" alt="Random first slide">
@@ -98,17 +74,17 @@
         <!-- Comments -->
 
         <ul class="comments-list">
-          <li class="comment-item">
+          <li class="comment-item" *ngFor="let comment of postData.comments">
             <div class="post__author author vcard inline-items">
-            <img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="postData.postedBy.type !='ngo'">
+            <img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="comment.postedBy.type !='ngo'">
 
-            <img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="postData.postedBy.type =='ngo'">
+            <img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="comment.postedBy.type =='ngo'">
 
               <div class="author-date">
-                <a class="h6 post__author-name fn" href="02-ProfilePage.html">James Spiegel</a>
+                <a class="h6 post__author-name fn" href="02-ProfilePage.html">{{comment.postedBy.name}}</a>
                 <div class="post__date">
                   <time class="published" datetime="2004-07-24T18:18">
-                    38 mins ago
+                      {{comment.postedBy.createdAt | amDateFormat:'LL HH:mm'}}
                   </time>
                 </div>
               </div>
@@ -121,15 +97,8 @@
 
             </div>
 
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium der doloremque laudantium.</p>
+            <p>{{comment.description}}</p>
 
-            <a href="javascript:void(0)" class="post-add-icon inline-items">
-              <svg class="olymp-heart-icon">
-                <use xlink:href="/assets/img/icons.svg#olymp-heart-icon"></use>
-              </svg>
-              <span>3</span>
-            </a>
-            <a href="javascript:void(0)" class="reply">Reply</a>
           </li>
         </ul>
 
@@ -162,7 +131,7 @@
             </div>
           </div>
 
-          <button class="btn btn-md-2 btn-primary" (click)="postcomment()">Post Comment</button>
+          <button class="btn btn-md-2 btn-primary" (click)="postcomment(postData._id)">Post Comment</button>
 
           <button class="btn btn-md-2 btn-border-think c-grey btn-transparent custom-color">Cancel</button>
 

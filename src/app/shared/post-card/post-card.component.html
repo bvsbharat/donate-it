@@ -1,6 +1,6 @@
 
 <div class="ui-block" *ngFor="let entry of postData; let i = index">
-		<article class="hentry post video" *ngIf="entry.postedBy.type == 'donor'; else ngo ">
+		<article class="hentry post video" *ngIf="entry.postedBy && entry.postedBy.type == 'donor'; else ngo ">
 
 			<div class="post__author author vcard inline-items">
 				<img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="entry.postedBy.type !='ngo'">
@@ -35,7 +35,7 @@
           <img *ngIf="!entry.images.length>0"  src="/assets/img/default-thumbnail.jpg" alt="photo">
         </div>
 				<div class="video-content">
-					<a href="javascript:void(0)" class="notification-friend "><b>{{entry.title}} </b></a>
+					<a href="javascript:void(0)" class="notification-friend " (click)="navigateMsg(entry._id)"><b>{{entry.title}} </b></a>
 					<p>
 						{{entry.description}}
 					</p>
@@ -79,9 +79,9 @@
 				<div class="post__author author vcard inline-items">
 					
            
-					<img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="entry.postedBy.type !='ngo'">
+					<img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="entry.postedBy && entry.postedBy.type !='ngo'">
 
-					<img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="entry.postedBy.type =='ngo'">
+					<img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="entry.postedBy && entry.postedBy.type =='ngo'">
 		
 					<div class="author-date">
 						<a class="h6 post__author-name fn" href="javascript:void(0)">{{entry.postedBy.name}}</a> NGO requirment 
@@ -118,7 +118,7 @@
 						  <img *ngIf="!entry.images.length>0"  src="{{'/assets/img/'+entry.category+'_thmb.jpg'}}" alt="photo">
 						</div>
 								<div class="video-content">
-									<a href="javascript:void(0)" class="notification-friend "><b>{{entry.title | truncate : 50}} </b></a>
+									<a href="javascript:void(0)" class="notification-friend " (click)="navigateMsg(entry._id)"><b>{{entry.title | truncate : 50}} </b></a>
 									<p>
 											{{entry.description | truncate : 300 }}
 									</p>

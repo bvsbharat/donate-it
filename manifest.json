@@ -1,0 +1,21 @@
+{
+  "short_name": "Maps",
+  "name": "Google Maps",
+  "icons": [
+    {
+      "src": "assets/images/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/images/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/dashboard/",
+  "background_color": "#3f4257eb",
+  "display": "standalone",
+  "scope": "/dashboard/",
+  "theme_color": "#3f4257eb"
+}

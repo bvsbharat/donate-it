@@ -24,10 +24,11 @@ export class PostDetailsComponent implements OnInit {
   ngOnInit() {
     let _this = this;
     this.socketIO = this.CommonService.getSocket();
-    this.socketIO.emit('search-one-post', this.postId.id);
     let sessionData = sessionStorage.getItem("userInfo");
     this.userData = JSON.parse(sessionData);
     this.userId = this.userData._id;
+
+    this.init();
     this.socketIO.on('post-in-detail', function(response){
       var responseData = response.data;
       console.log("post details",responseData);
@@ -40,16 +41,25 @@ export class PostDetailsComponent implements OnInit {
 
   }
 
+  init(){
+    this.socketIO.emit('search-one-post', this.postId.id);
+  }
 
-  postcomment(){
+
+  postcomment(id){
+    let _this = this;
     let userdetails=this.CommonService.getUserInformation();
     this.socketIO.emit("create-comment", {
-      post:this.postId,
+      post:{_id:id},
       postedBy:userdetails["_id"],
       description:this.commentsposted
     });
     this.socketIO.on('new-comment-added', function (data) {
-      console.log(data);
+      console.log("comment data" ,data);
+      if(data.success){
+        _this.init();
+        _this.commentsposted = '';
+      }
     })
   }
 

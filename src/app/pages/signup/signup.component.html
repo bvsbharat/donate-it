@@ -1,0 +1,135 @@
+<div class="landing-page">
+    <div class="content-bg-wrap"></div>
+
+    <div class="container">
+        <div class="row display-flex">
+            <div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                <div class="landing-content">
+                    <h1>Welcome to the Deloitte Donation center!</h1>
+                    <p style="font-size: 20px;">"You have not lived today until you have done something for someone who can never repay you."
+                    </p>
+                    <p style="text-align: right;">- John Bunyan</p>
+
+                </div>
+            </div>
+
+            <div class="col col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12">
+
+                <!-- Login-Registration Form  -->
+
+                <div class="registration-login-form">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home" role="tab">
+                                <svg class="olymp-login-icon">
+                                    <use xlink:href="/assets/img/icons.svg#olymp-login-icon"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#profile" role="tab">
+                                <svg class="olymp-register-icon">
+                                    <use xlink:href="/assets/img/icons.svg#olymp-register-icon"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home" role="tabpanel" data-mh="log-tab">
+                            <div class="title h6">Login to your Account</div>
+                            <div class="alert alert-danger" *ngIf="userLoginFail">
+                                <div class="container">Login Failed. Please check the Email / Password.</div>
+                            </div>
+                            <form class="content" #logindata="ngForm" (ngSubmit)="submitLogin(logindata.value)">
+                                <div class="row">
+                                    <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" placeholder="Your Email" type="email" name="emailId" required ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                                        </div>
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" placeholder="Password" type="password" name="password" required ngModel>
+                                        </div>
+
+                                        <div class="remember">
+
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input name="optionsCheckboxes" type="checkbox">
+                                                    <span class="checkbox-material">
+                                                        <span class="check"></span>
+                                                    </span>
+                                                    Remember Me
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-lg btn-primary full-width" [disabled]="!logindata.form.valid">Login</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane" id="profile" role="tabpanel" data-mh="log-tab">
+                            <div class="title h6">Register to Donate It</div>
+                            <div class="alert alert-success" *ngIf="userRegisterSuccess">
+                                <div class="container">User Registerd Successfully. <a data-toggle="tab" href="#home" role="tab" (click)="showLogin()">Click Here</a> to login</div>
+                            </div>
+                            <form class="content" #formdata="ngForm" (ngSubmit)="onClickSubmit(formdata.value)">
+                                <div class="row">
+                                    <div class="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-check-radio">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" name="userType" id="userType1" value="donor" [checked]="(formdata.value.userType !== ngo)" (change)="changeUserType(formdata.value)" ngModel> Donor
+                                                <span class="form-check-sign"></span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check-radio">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" name="userType" id="userType2" value="ngo" [checked]="(formdata.value.userType === ngo)" (change)="changeUserType(formdata.value)" ngModel> NGO
+                                                <span class="form-check-sign"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12" *ngIf="isDonorType">
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" placeholder="Name" type="text" name="name" ngModel required>
+                                        </div>
+                                    </div>
+                                    <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12" *ngIf="!isDonorType">
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" placeholder="NGO Name" type="text" name="name" ngModel required>
+                                        </div>
+                                    </div>
+                                    <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" placeholder="Email" type="email" name="emailId" required ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                                        </div>
+                                    </div>
+                                    <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12" *ngIf="isDonorType">
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" placeholder="Employee Id" type="text" name="empId" ngModel>
+                                        </div>
+                                    </div>
+                                    <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" placeholder="Phone Number" type="text" name="phoneNumber" ngModel pattern="\d*" minlength="10">
+                                        </div>
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" placeholder="Choose Password" type="password" name="password" ngModel required minlength="8">
+                                        </div>
+                                        <input type="submit" class="btn btn-primary" value="Register" [disabled]="!formdata.form.valid">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

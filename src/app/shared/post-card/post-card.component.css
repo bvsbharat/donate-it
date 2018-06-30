@@ -1,0 +1,66 @@
+.post-video .video-content p{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+    height: 52px;
+}
+
+.title {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    min-height: 30px;
+}
+textarea.form-control:focus{
+    border: 0px;
+}
+.like-to-donate .btn, .like-to-donate .btn:hover {
+    background-color: #51cbce;
+    border: none;
+    color: white;
+    margin-bottom: 0;
+}
+.donate-container {
+    padding-top: 25px;
+}
+.donate-container input{
+    height: 40px;
+    outline: none;
+}
+.donate-container input.ng-invalid.ng-touched{
+    border-color: red; 
+}
+.date .form-control {
+    display: block;
+    width: 100%;
+    padding: 1.1rem;
+    line-height: 1.25;
+    color: #464a4c;
+    background-clip: padding-box;
+    border: 1px solid #e6ecf5;
+    border-radius: .25rem;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.post-details{
+    margin-bottom: 16px;
+    font-size: 15px;
+}
+
+.post-card-charity{
+    background-image: url(../../../assets/img/what_is_charity2.jpg);
+    background-position-y: -40px;
+    background-position-x: -67px;
+    background-repeat-x: inherit;
+    text-align: right;
+    
+}
+
+.text-ellipsis{
+    padding-left: 44%;
+    text-align: justify; 
+    font-weight: 500;
+}
+
+a.notification-title{
+    color: #f9da6b;
+}

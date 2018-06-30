@@ -1,0 +1,503 @@
+<!-- Fixed Sidebar Left -->
+
+<div class="fixed-sidebar">
+	<div class="fixed-sidebar-left sidebar--small" id="sidebar-left">
+
+		<a routerLink="dashboard" class="logo">
+			<div class="img-wrap">
+				<a href="javascript:void(0)" class="js-sidebar-open">
+					<svg class="olymp-menu-icon left-menu-icon" data-toggle="tooltip" data-placement="right" data-original-title="OPEN MENU">
+						<use xlink:href="assets/img/icons.svg#olymp-menu-icon"></use>
+					</svg>
+				</a>
+			</div>
+		</a>
+
+		<div class="mCustomScrollbar" data-mcs-theme="dark">
+			<ul class="left-menu">
+				<li>
+					<a href="javascript:void(0)" routerLink="dashboard" title="demo">
+						<svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right" data-original-title="Dashboard">
+							<use xlink:href="assets/img/icons.svg#olymp-newsfeed-icon"></use>
+						</svg>
+					</a>
+
+				</li>
+
+				<li>
+					<a href="javascript:void(0)" routerLink="/profile">
+						<svg class="olymp-happy-faces-icon left-menu-icon" data-toggle="tooltip" data-placement="right" data-original-title="My Profile">
+							<use xlink:href="assets/img/icons.svg#olymp-happy-faces-icon"></use>
+						</svg>
+					</a>
+				</li>
+
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="fixed-sidebar-left sidebar--large" id="sidebar-left-1">
+		<a routerLink="dashboard" class="logo">
+			<div class="img-wrap">
+				<a href="#" class="js-sidebar-open">
+					<svg class="olymp-close-icon left-menu-icon">
+						<use xlink:href="assets/img/icons.svg#olymp-close-icon"></use>
+					</svg>
+
+				</a>
+			</div>
+			<div class="title-block">
+				<h6 class="logo-title">Collapse Menu</h6>
+			</div>
+		</a>
+
+		<div class="mCustomScrollbar" data-mcs-theme="dark">
+			<ul class="left-menu">
+				<li>
+					<a href="javascript:void(0)" routerLink="/dashboard">
+						<svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right" data-original-title="Dashboard">
+							<use xlink:href="assets/img/icons.svg#olymp-newsfeed-icon"></use>
+						</svg>
+						<span class="left-menu-title">Dashboard</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="javascript:void(0)" routerLink="/profile">
+						<svg class="olymp-happy-faces-icon left-menu-icon" data-toggle="tooltip" data-placement="right" data-original-title="My Profile">
+							<use xlink:href="assets/img/icons.svg#olymp-happy-faces-icon"></use>
+						</svg>
+						<span class="left-menu-title">My Profile</span>
+					</a>
+				</li>
+
+
+			</ul>
+
+			<div class="profile-completion">
+
+				<div class="skills-item">
+					<div class="skills-item-info">
+						<span class="skills-item-title">Profile Completion</span>
+						<span class="skills-item-count">
+							<span class="count-animate" data-speed="1000" data-refresh-interval="50" data-to="76" data-from="0"></span>
+							<span class="units">76%</span>
+						</span>
+					</div>
+					<div class="skills-item-meter">
+						<span class="skills-item-meter-active bg-primary" style="width: 76%"></span>
+					</div>
+				</div>
+
+				<span>Complete
+					<a href="javascript:void(0)" routerLink="/profile">your profile</a> so people can know more about you!</span>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ... end Fixed Sidebar Left -->
+
+
+<!-- Fixed Sidebar Left -->
+
+<div class="fixed-sidebar fixed-sidebar-responsive">
+
+	<div class="fixed-sidebar-left sidebar--small" id="sidebar-left-responsive">
+		<a href="#" class="logo js-sidebar-open">
+			<img src="assets/img/logo.png" alt="Donate It">
+		</a>
+
+	</div>
+
+	<div class="fixed-sidebar-left sidebar--large" id="sidebar-left-1-responsive">
+		<a routerLink="/profile" class="logo">
+			<div class="img-wrap">
+				<img src="assets/img/logo.png" alt="Donate It">
+			</div>
+			<div class="title-block">
+				<h6 class="logo-title">Donate It</h6>
+			</div>
+		</a>
+
+		<div class="mCustomScrollbar" data-mcs-theme="dark">
+
+			<div class="control-block">
+				<div class="author-page author vcard inline-items">
+					<div class="author-thumb">
+						<img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="userType !='ngo'">
+						<img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="userType =='ngo'">
+						<span class="icon-status online"></span>
+					</div>
+					<a href="02-ProfilePage.html" class="author-name fn">
+						<div class="author-title">
+								{{userName}}
+							<svg class="olymp-dropdown-arrow-icon">
+								<use xlink:href="assets/img/icons.svg#olymp-dropdown-arrow-icon"></use>
+							</svg>
+						</div>
+						<span class="author-subtitle">{{ userType | uppercase}}</span>
+					</a>
+				</div>
+			</div>
+
+
+
+			<div class="ui-block-title ui-block-title-small">
+				<h6 class="title">YOUR ACCOUNT</h6>
+			</div>
+
+			<ul class="account-settings">
+				<li>
+					<a href="#" class="js-sidebar-open">
+						<svg class="olymp-close-icon left-menu-icon">
+							<use xlink:href="assets/img/icons.svg#olymp-close-icon"></use>
+						</svg>
+						<span class="left-menu-title">Collapse Menu</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" class="js-sidebar-open" routerLink="/dashboard">
+
+						<svg class="olymp-menu-icon">
+							<use xlink:href="assets/img/icons.svg#olymp-newsfeed-icon"></use>
+						</svg>
+						<span class="left-menu-title">Dashboard</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" class="js-sidebar-open" routerLink="/profile">
+
+						<svg class="olymp-menu-icon">
+							<use xlink:href="assets/img/icons.svg#olymp-menu-icon"></use>
+						</svg>
+
+						<span>My Profile</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" (click)="logOut()">
+						<svg class="olymp-logout-icon">
+							<use xlink:href="assets/img/icons.svg#olymp-logout-icon"></use>
+						</svg>
+
+						<span>Log Out</span>
+					</a>
+				</li>
+			</ul>
+
+			<div class="ui-block-title ui-block-title-small">
+				<h6 class="title">About Donate It</h6>
+			</div>
+
+			<ul class="about-DEGP">
+				<li>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim gravida lacus, nec mollis ipsum tempor ut.
+					</p>
+					<a href="#">
+
+						<span>Terms and Conditions !</span>
+					</a>
+				</li>
+
+			</ul>
+
+		</div>
+	</div>
+</div>
+
+<!-- ... end Fixed Sidebar Left -->
+
+
+<!-- Header-BP -->
+
+<header class="header" id="site-header">
+
+	<div class="page-title">
+		<h6>Donate It</h6>
+	</div>
+
+	<div class="header-content-wrapper">
+		<form class=" search-bar w-search notification-list friend-requests">
+			<div class="form-group with-button">
+				<input [(ngModel)]="searchValue" name="search" class="form-control js-user-search" placeholder="Search open donations..."
+				    type="text" (keydown)="showHideSearch()">
+				<button (click)="filterBasedOnCategory(searchValue)">
+					<svg class="olymp-magnifying-glass-icon">
+						<use xlink:href="assets/img/icons.svg#olymp-magnifying-glass-icon"></use>
+					</svg>
+				</button>
+				<div class="more-dropdown search-result more-with-triangle triangle-top-center" *ngIf="showResult">
+					<div class="ui-block-title ui-block-title-small">
+						<h6 class=""> {{ searchResult.length>0? searchResult.length + ' Result' : 'No Result found.'}}</h6>
+					</div>
+					<div class="search-scrool" data-mcs-theme="dark">
+						<ul class="search-notification-list">
+							<li class="un-read" *ngFor="let entry of searchResult; let i = index">
+
+								<div class="notification-event">
+									<div>
+										<a href="javascript:void(0)" class="h6 notification-friend" (click)="navigateMsg(entry._id)"> {{ entry.title}} </a>
+										<div class="author-thumb">
+
+											<img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="entry.postedBy.type !='ngo'">
+
+											<img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="entry.postedBy.type =='ngo'">
+										</div> posted by {{entry.postedBy.name}} </div>
+
+								</div>
+
+							</li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</form>
+
+
+		<div class="control-block">
+
+			<div class="control-icon more has-items">
+				<svg class="olymp-thunder-icon">
+					<use xlink:href="assets/img/icons.svg#olymp-thunder-icon"></use>
+				</svg>
+
+				<div class="label-avatar bg-primary">8</div>
+
+				<div class="more-dropdown more-with-triangle triangle-top-center">
+					<div class="ui-block-title ui-block-title-small">
+						<h6 class="title">Notifications</h6>
+						<a href="#">Mark all as read</a>
+						<a href="#">Settings</a>
+					</div>
+
+					<div class="mCustomScrollbar" data-mcs-theme="dark">
+						<ul class="notification-list">
+							<li>
+								<div class="author-thumb">
+								</div>
+								<div class="notification-event">
+									<div>
+										<a href="#" class="h6 notification-friend">Mathilda Brinker</a> commented on your new
+										<a href="#" class="notification-link">profile status</a>.</div>
+									<span class="notification-date">
+										<time class="entry-date updated" datetime="2004-07-24T18:18">4 hours ago</time>
+									</span>
+								</div>
+								<span class="notification-icon">
+									<svg class="olymp-comments-post-icon">
+										<use xlink:href="assets/img/icons.svg#olymp-comments-post-icon"></use>
+									</svg>
+								</span>
+
+								<div class="more">
+									<svg class="olymp-three-dots-icon">
+										<use xlink:href="assets/img/icons.svg#olymp-three-dots-icon"></use>
+									</svg>
+									<svg class="olymp-little-delete">
+										<use xlink:href="assets/img/icons.svg#olymp-little-delete"></use>
+									</svg>
+								</div>
+							</li>
+
+							<li class="un-read">
+								<div class="author-thumb">
+									<img src="assets/img/avatar63-sm.jpg" alt="author">
+								</div>
+								<div class="notification-event">
+									<div>You and
+										<a href="#" class="h6 notification-friend">Nicholas Grissom</a> just became friends. Write on
+										<a href="#" class="notification-link">his wall</a>.</div>
+									<span class="notification-date">
+										<time class="entry-date updated" datetime="2004-07-24T18:18">9 hours ago</time>
+									</span>
+								</div>
+								<span class="notification-icon">
+									<svg class="olymp-happy-face-icon">
+										<use xlink:href="assets/img/icons.svg#olymp-happy-face-icon"></use>
+									</svg>
+								</span>
+
+								<div class="more">
+									<svg class="olymp-three-dots-icon">
+										<use xlink:href="assets/img/icons.svg#olymp-three-dots-icon"></use>
+									</svg>
+									<svg class="olymp-little-delete">
+										<use xlink:href="assets/img/icons.svg#olymp-little-delete"></use>
+									</svg>
+								</div>
+							</li>
+
+							<li class="with-comment-photo">
+								<div class="author-thumb">
+
+								</div>
+								<div class="notification-event">
+									<div>
+										<a href="#" class="h6 notification-friend">Sarah Hetfield</a> commented on your
+										<a href="#" class="notification-link">photo</a>.</div>
+									<span class="notification-date">
+										<time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 5:32am</time>
+									</span>
+								</div>
+								<span class="notification-icon">
+									<svg class="olymp-comments-post-icon">
+										<use xlink:href="assets/img/icons.svg#olymp-comments-post-icon"></use>
+									</svg>
+								</span>
+
+								<div class="comment-photo">
+									<img src="assets/img/comment-photo1.jpg" alt="photo">
+									<span>“She looks incredible in that outfit! We should see each...”</span>
+								</div>
+
+								<div class="more">
+									<svg class="olymp-three-dots-icon">
+										<use xlink:href="assets/img/icons.svg#olymp-three-dots-icon"></use>
+									</svg>
+									<svg class="olymp-little-delete">
+										<use xlink:href="assets/img/icons.svg#olymp-little-delete"></use>
+									</svg>
+								</div>
+							</li>
+
+							<li>
+								<div class="author-thumb">
+								</div>
+								<div class="notification-event">
+									<div>
+										<a href="#" class="h6 notification-friend">Green Goo Rock</a> invited you to attend to his event Goo in
+										<a href="#" class="notification-link">Gotham Bar</a>.</div>
+									<span class="notification-date">
+										<time class="entry-date updated" datetime="2004-07-24T18:18">March 5th at 6:43pm</time>
+									</span>
+								</div>
+								<span class="notification-icon">
+									<svg class="olymp-happy-face-icon">
+										<use xlink:href="assets/img/icons.svg#olymp-happy-face-icon"></use>
+									</svg>
+								</span>
+
+								<div class="more">
+									<svg class="olymp-three-dots-icon">
+										<use xlink:href="assets/img/icons.svg#olymp-three-dots-icon"></use>
+									</svg>
+									<svg class="olymp-little-delete">
+										<use xlink:href="assets/img/icons.svg#olymp-little-delete"></use>
+									</svg>
+								</div>
+							</li>
+
+							<li>
+								<div class="author-thumb">
+									<img src="assets/img/avatar66-sm.jpg" alt="author">
+								</div>
+								<div class="notification-event">
+									<div>
+										<a href="#" class="h6 notification-friend">James Summers</a> commented on your new
+										<a href="#" class="notification-link">profile status</a>.</div>
+									<span class="notification-date">
+										<time class="entry-date updated" datetime="2004-07-24T18:18">March 2nd at 8:29pm</time>
+									</span>
+								</div>
+								<span class="notification-icon">
+									<svg class="olymp-heart-icon">
+										<use xlink:href="assets/img/icons.svg#olymp-heart-icon"></use>
+									</svg>
+								</span>
+
+								<div class="more">
+									<svg class="olymp-three-dots-icon">
+										<use xlink:href="assets/img/icons.svg#olymp-three-dots-icon"></use>
+									</svg>
+									<svg class="olymp-little-delete">
+										<use xlink:href="assets/img/icons.svg#olymp-little-delete"></use>
+									</svg>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<a href="#" class="view-all bg-primary">View All Notifications</a>
+				</div>
+			</div>
+
+			<div class="author-page author vcard inline-items more">
+				<div class="author-thumb">
+
+					<img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="userType !='ngo'">
+
+					<img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="userType =='ngo'">
+					<span class="icon-status online"></span>
+					<div class="more-dropdown more-with-triangle">
+						<div class="mCustomScrollbar" data-mcs-theme="dark">
+							<div class="ui-block-title ui-block-title-small">
+								<h6 class="title">Your Account</h6>
+							</div>
+
+							<ul class="account-settings">
+								<li>
+									<a href="javascript:void(0)" routerLink="/profile">
+
+										<svg class="olymp-menu-icon">
+											<use xlink:href="assets/img/icons.svg#olymp-menu-icon"></use>
+										</svg>
+
+										<span>My Profile</span>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0)" (click)="logOut()">
+										<svg class="olymp-logout-icon">
+											<use xlink:href="assets/img/icons.svg#olymp-logout-icon"></use>
+										</svg>
+
+										<span>Log Out</span>
+									</a>
+								</li>
+							</ul>
+
+						</div>
+
+					</div>
+				</div>
+				<a href="javascript:void(0)" class="author-name fn">
+					<div class="author-title">
+						{{userName}}
+						<svg class="olymp-dropdown-arrow-icon">
+							<use xlink:href="assets/img/icons.svg#olymp-dropdown-arrow-icon"></use>
+						</svg>
+					</div>
+					<span class="author-subtitle">{{userType | uppercase}}</span>
+				</a>
+			</div>
+
+		</div>
+	</div>
+
+</header>
+
+<!-- ... end Header-BP -->
+
+
+<!-- Responsive Header-BP -->
+
+<header class="header header-responsive" id="site-header-responsive">
+
+		<div class="logo-title">
+				<h6>Donate It</h6>
+			</div>
+
+</header>
+
+<!-- ... end Responsive Header-BP -->
+
+
+
+<a class="back-to-top" href="javascript:void(0)">
+	<img src="/assets/img/back-to-top.svg" alt="arrow" class="back-icon">
+</a>

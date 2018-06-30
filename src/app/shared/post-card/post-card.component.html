@@ -1,0 +1,192 @@
+
+<div class="ui-block" *ngFor="let entry of postData; let i = index">
+		<article class="hentry post video" *ngIf="entry.postedBy.type == 'donor'; else ngo ">
+
+			<div class="post__author author vcard inline-items">
+				<img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="entry.postedBy.type !='ngo'">
+				<img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="entry.postedBy.type =='ngo'">
+				<div class="author-date">
+					<a class="h6 post__author-name fn" href="javascript:void(0)">{{entry.postedBy.name}}</a> donated a product 
+					<a href="javascript:void(0)" (click)="navigateMsg(entry._id)">more details..</a>
+					<div class="post__date">
+						<time class="published" datetime="2004-07-24T18:18">
+							{{entry.createdAt | amDateFormat:'LL HH:mm'}}
+						</time>
+					</div>
+				</div>
+				<div class="more" [hidden]="entry.isPostActive && userId != entry.postedBy._id">
+					<svg class="olymp-three-dots-icon">
+						<use xlink:href="/assets/img/icons.svg#olymp-three-dots-icon"></use>
+					</svg>
+					<ul class="more-dropdown" >
+						<li>
+							<a href="javascript:void(0)" (click)="navigateEdit(entry._id)">Edit Post</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" (click)="deletePost(entry._id)">Delete Post</a>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+      <div class="post-video">
+        <div   class="video-thumb">
+          <img *ngIf="entry?.images.length>0" [src]="entry.images[0].reference" alt="photo">
+          <img *ngIf="!entry.images.length>0"  src="/assets/img/default-thumbnail.jpg" alt="photo">
+        </div>
+				<div class="video-content">
+					<a href="javascript:void(0)" class="notification-friend "><b>{{entry.title}} </b></a>
+					<p>
+						{{entry.description}}
+					</p>
+					<div class="row">
+						<span class=" col-md-6 post-details pull-left"><b> Age of Product:</b> {{entry.ageOfProduct}} {{entry.ageOfProduct>1?'months' :'month'}}</span>
+						<span class=" col-md-6 post-details  pull-right"><b>Count:</b> {{entry.quantityRequired}} </span>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="post-additional-info inline-items">
+				<div class="comments-shared">
+					<a href="javascript:void(0)" class="post-add-icon inline-items">
+						<svg class="olymp-speech-balloon-icon">
+							<use xlink:href="/assets/img/icons.svg#olymp-speech-balloon-icon"></use>
+						</svg>
+						<span>{{entry.commentCount}}</span>
+					</a>
+				</div>
+				
+			</div>
+			<div class="postDonationMessage text-center">
+					{{entry.donationMessage}}
+			</div>
+			<div class="control-block-button post-control-button">
+				<a href="javascript:void(0)" class="btn btn-control" (click)="navigateMsg(entry._id)">
+					<svg class="olymp-share-icon">
+						<use xlink:href="/assets/img/icons.svg#olymp-share-icon"></use>
+					</svg>
+				</a>
+
+			</div>
+
+		</article>
+
+		<ng-template #ngo>
+
+			<article class="hentry post video" >
+
+				<div class="post__author author vcard inline-items">
+					
+           
+					<img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="entry.postedBy.type !='ngo'">
+
+					<img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="entry.postedBy.type =='ngo'">
+		
+					<div class="author-date">
+						<a class="h6 post__author-name fn" href="javascript:void(0)">{{entry.postedBy.name}}</a> NGO requirment 
+						<a href="javascript:void(0)" (click)="navigateMsg(entry._id)">more details..</a>
+						<div class="post__date">
+							<time class="published" datetime="2004-07-24T18:18">
+								{{entry.createdAt | amDateFormat:'LL HH:mm'}}
+							</time>
+						</div>
+					</div>
+	
+					<div class="more" [hidden]="entry.isPostActive && userId != entry.postedBy._id">
+						<svg class="olymp-three-dots-icon">
+							<use xlink:href="/assets/img/icons.svg#olymp-three-dots-icon"></use>
+						</svg>
+						<ul class="more-dropdown">
+							<li>
+								<a href="javascript:void(0)" (click)="navigateEdit(entry._id)">Edit Post</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" (click)="deletePost(entry._id)">Delete Post</a>
+							</li>
+	
+						</ul>
+					</div>
+	
+				</div>
+	
+	
+	
+		  <div class="widget w-birthday-alert post-card-charity">
+			
+					<div class="video-content">
+						<a href="javascript:void(0)" class="notification-friend notification-title"><b>{{entry.title}} </b></a>
+						<p class="text-ellipsis">
+							{{entry.description | truncate : 300 }}
+						</p>
+						
+						<div class="row">
+							<span class="col-md-8 post-details pull-right"> <b>Quantity In Hand:</b>{{entry.quantityInHand}} </span>
+							<span class="col-md-4 post-details pull-right"> <b>Quantity Required:</b> {{entry.quantityRequired}} </span>
+						</div>
+					</div>
+	
+				</div>
+	
+				<div class="post-additional-info inline-items">
+					<div class="comments-shared">
+						<a href="javascript:void(0)" class="post-add-icon inline-items">
+							<svg class="olymp-speech-balloon-icon">
+								<use xlink:href="/assets/img/icons.svg#olymp-speech-balloon-icon"></use>
+							</svg>
+		
+							<span>{{entry.commentCount}}</span>
+						</a>
+					</div>
+					<div class="like-to-donate" *ngIf="entry.isPostActive && userId != entry.postedBy._id">
+						<a href="javascript:void(0)" class="inline-items btn btn-primary" (click)="entry.show=true">
+							<span>I will donate!</span>
+						</a>
+					</div>
+				</div>
+				<div class="postDonationMessage text-center">
+						{{entry.donationMessage}}
+				</div>
+				<div [hidden]="!entry.show" class="donate-container">
+					<a class="close" href="#" (click)="entry.show=false">X</a>
+					<form class="content" #donatedata="ngForm">
+						<div class="row">
+							<div class="col-md-5">
+								<input type="hidden" name="postId" [(ngModel)]="entry.postId">
+								<div class="form-group label-floating is-empty">
+									<input type="text" placeholder="Quantity I can donate" name="quantity" pattern="\d*" required ngModel>
+								</div>
+							</div>
+							<div class="col-md-5">
+								<div class="form-group">
+									<div class="input-group date">
+										<input class="form-control" placeholder="yyyy-mm-dd" name="date" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()"
+										 required ngModel>
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar">
+												<i class="fa fa-calendar" aria-hidden="true"></i>
+											</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<input type="submit" class="btn btn-primary" value="Donate" (click)="submitDonation(entry, donatedata.value)">
+							</div>
+						</div>
+					</form>
+	
+				</div>
+	
+				<div class="control-block-button post-control-button">
+					<a href="javascript:void(0)" class="btn btn-control" (click)="navigateMsg(entry._id)">
+						<svg class="olymp-share-icon">
+							<use xlink:href="/assets/img/icons.svg#olymp-share-icon"></use>
+						</svg>
+					</a>
+	
+				</div>
+	
+			</article>
+		</ng-template>
+	</div>

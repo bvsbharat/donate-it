@@ -1,0 +1,143 @@
+
+
+
+<div class="ui-block">
+
+	<!-- W-Birthsday-Alert -->
+
+	<div class="widget w-birthday-alert">
+		<!-- <div class="icons-block">
+			<svg class="olymp-cupcake-icon">
+				<use xlink:href="/assets/img/icons.svg#olymp-cupcake-icon"></use>
+			</svg>
+			<a href="javascript:void(0)" class="more">
+				<svg class="olymp-three-dots-icon">
+					<use xlink:href="/assets/img/icons.svg#olymp-three-dots-icon"></use>
+				</svg>
+			</a>
+		</div> -->
+
+		<div class="content">
+
+			<span>{{today| amDateFormat:'LL'}}</span>
+			<a href="javascript:void(0)" class="h4 title">Thought for the Day !</a>
+			<p>You have control over you and that is the only person you can change. When you realize this you will save yourself a lot of frustration.!</p>
+		</div>
+	</div>
+
+	<!-- ... end W-Birthsday-Alert -->
+</div>
+
+<div class="ui-block">
+	<div class="categoriesContainer">
+		<h6 class="title">Categories</h6>
+	</div>
+
+	<!-- W-Friend-Pages-Added -->
+
+	<ul class="widget w-friend-pages-added notification-list friend-requests">
+		<li class="inline-items">
+			<div class="author-thumb">
+				<img src="/assets/img/appreals.png" alt="author">
+			</div>
+			<div class="notification-event">
+				<span class="h6 notification-friend" [class]= "categories.Apparel?'active':''"> Apparel</span>
+			</div>
+			<span class="notification-icon" data-toggle="tooltip" data-placement="top" data-original-title="ADD TO YOUR FAVS">
+				<div class="checkbox">
+						<label class="categoryChkbox">
+							<input name="categoryCheckboxes" type="checkbox" value="Apparel" 
+							[(ngModel)]="categories.Apparel" (ngModelChange)="onFilterChange(categories.Apparel)"><span class="checkbox-material "><span class="check"></span></span>
+						</label>
+				</div>
+			</span>
+		</li>
+
+		<li class="inline-items">
+			<div class="author-thumb">
+				<img src="/assets/img/Utensils.png" alt="author" class="categoryImg">
+			</div>
+			<div class="notification-event">
+				<span class="h6 notification-friend" [class]= "categories.Utensils?'active':''"> Utensils</span>
+			</div>
+			<span class="notification-icon" data-toggle="tooltip" data-placement="top" data-original-title="ADD TO YOUR FAVS">
+				<div class="checkbox">
+						<label class="categoryChkbox">
+							<input name="categoryCheckboxes" type="checkbox" value="Utensils" 
+							[(ngModel)]="categories.Utensils" (ngModelChange)="onFilterChange($event)"><span class="checkbox-material "><span class="check"></span></span>
+						</label>
+				</div>
+			</span>
+		</li>
+
+		<li class="inline-items">
+			<div class="author-thumb">
+				<img src="/assets/img/Furniture.png" alt="author">
+			</div>
+			<div class="notification-event">
+				<span class="h6 notification-friend" [class]= "categories.Furniture?'active':''"> Furniture</span>
+			</div>
+			<span class="notification-icon" data-toggle="tooltip" data-placement="top" data-original-title="ADD TO YOUR FAVS">
+				<div class="checkbox">
+						<label class="categoryChkbox">
+							<input name="categoryCheckboxes" type="checkbox" value="Furniture" [(ngModel)]="categories.Furniture" (ngModelChange)="onFilterChange($event)"><span class="checkbox-material "><span class="check"></span></span>
+						</label>
+				</div>
+			</span>
+		</li>
+
+		<li class="inline-items">
+			<div class="author-thumb">
+				<img src="/assets/img/others.png" alt="author">
+			</div>
+			<div class="notification-event">
+				<span class="h6 notification-friend" [class]= "categories.Other?'active':''"> Others</span>
+			</div>
+			<span class="notification-icon" data-toggle="tooltip" data-placement="top" data-original-title="ADD TO YOUR FAVS">
+				<div class="checkbox">
+						<label class="categoryChkbox">
+							<input name="categoryCheckboxes" type="checkbox" value="Other" [(ngModel)]="categories.Other" (ngModelChange)="onFilterChange($event)"><span class="checkbox-material "><span class="check"></span></span>
+						</label>
+				</div>
+			</span>
+		</li>
+
+	</ul>
+
+	<!-- .. end W-Friend-Pages-Added -->
+</div>
+
+
+<div class="ui-block">
+
+	<div class="ui-block-title">
+		<h6 class="title">Activity Feed</h6>
+		<a href="javascript:void(0)" class="more">
+			<svg class="olymp-three-dots-icon">
+				<use xlink:href="/assets/img/icons.svg#olymp-three-dots-icon"></use>
+			</svg>
+		</a>
+	</div>
+	<!-- W-Activity-Feed -->
+
+	<ul class="widget w-activity-feed notification-list" *ngIf="activityFeed != undefined">
+		
+		<li *ngFor="let entry of activityFeed; let i = index">
+			<div class="author-thumb">
+				<img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="entry.postedBy.type !='ngo'">
+				<img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="entry.postedBy.type =='ngo'">
+			</div>
+			<div class="notification-event">
+				<a href="javascript:void(0)" class="h6 notification-friend">{{entry.postedBy.name}} </a> {{entry.postedBy.type == 'donor' ? 'donated a':'requested a donation'}}
+				<a href="javascript:void(0)" class="notification-link" (click)="navigateMsg(entry._id)">{{entry.title}}</a>.
+				<span class="notification-date">
+					<time class="entry-date updated" datetime="2004-07-24T18:18">{{entry.createdAt | amDateFormat:'LL HH:mm'}}</time>
+				</span>
+			</div>
+		</li>
+
+
+	</ul>
+
+	<!-- .. end W-Activity-Feed -->
+</div>

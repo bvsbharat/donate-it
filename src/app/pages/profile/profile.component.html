@@ -1,0 +1,48 @@
+<div class="header-spacer">
+
+</div>
+
+
+
+<!-- Top Header-Profile -->
+<app-my-profile-card></app-my-profile-card>
+<!-- ... end Top Header-Profile -->
+
+<div class="container">
+	<div class="row">
+
+		<!-- Main Content -->
+
+		<div class="col col-xl-8 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
+
+			<div id="newsfeed-items-grid">
+				<!-- All post -->
+				<app-post-card [postData]="postData" (deletedPostID) = "updateOnDelete($event)"></app-post-card>
+				<!-- ... end All post -->
+			</div>
+
+
+			<!-- load more -->
+
+			<a id="load-more-button" href="#" class="btn btn-control btn-more" data-load-link="items-to-load.html" data-container="newsfeed-items-grid">
+				<svg class="olymp-three-dots-icon">
+					<use xlink:href="assets/img/icons.svg#olymp-three-dots-icon"></use>
+				</svg>
+			</a>
+			<!-- ... end load more -->
+
+		</div>
+
+		<!-- ... end Main Content -->
+
+
+		<!-- Left Sidebar -->
+
+		<div class="col col-xl-4 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-12 col-12">
+			<app-profile-widget-container></app-profile-widget-container>
+		</div>
+
+		<!-- ... end Left Sidebar -->
+
+	</div>
+</div>

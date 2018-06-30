@@ -1,0 +1,47 @@
+<div class="header-spacer">
+</div>
+
+
+<div class="container">
+	<div class="row">
+
+		<!-- Main Content -->
+
+		<main class="col col-xl-8 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
+
+			<div class="ui-block">
+
+				<!-- News Feed Form  -->
+				<app-new-post [(userType)]="userDetails.type" ></app-new-post>
+				<!-- ... end News Feed Form  -->
+
+			</div>
+
+			<div id="newsfeed-items-grid">
+				<!-- result -->
+				<p>{{ postData.length>0? 'Total ' + postData.length + ' result found...' : 'No result found...'}}</p>
+				<!-- All post -->
+				<app-post-card [(postData)]="postData" (deletedPostID) = "updateOnDelete($event)"></app-post-card>
+				<!-- ... end All post -->
+			</div>
+
+			<!-- load more  -->
+			<a id="load-more-button" href="javascript:void(0)" class="btn btn-control btn-more" data-load-link="items-to-load.html" data-container="newsfeed-items-grid">
+				<svg class="olymp-three-dots-icon">
+					<use xlink:href="/assets/img/icons.svg#olymp-three-dots-icon"></use>
+				</svg>
+			</a>
+
+		</main>
+
+		<!-- ... end Main Content -->
+
+
+		<!-- Left Sidebar -->
+		<aside class="col col-xl-4 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-12 col-12">
+			<app-widget-container></app-widget-container>
+		</aside>
+		<!-- ... end Left Sidebar -->
+
+	</div>
+</div>

@@ -1,0 +1,25 @@
+html > body {
+    margin: 0;
+    font-family: Roboto,-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    font-size: .812rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #888da8;
+    background-color: #edf2f6;
+    padding-top: 0;
+}
+a.btn-control {
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    line-height: 54px;
+    padding: 0;
+    fill: #fff;
+    font-size: 20px;
+}
+
+@media (min-width: 1400px){
+    div.container {
+        max-width: 1300px;
+    }
+}

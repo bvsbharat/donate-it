@@ -1,0 +1,18 @@
+.categoryChkbox {
+  width :100%;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+
+.categoriesContainer {
+  border-bottom: 1px solid #e6ecf5;
+  padding: 23px 25px 5px;
+}
+
+.categoryImg {
+  width: 30px;
+  height: 30px;
+}
+.active{
+  color: #51cbce;
+}

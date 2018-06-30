@@ -1,0 +1,56 @@
+.input-post {
+    line-height: 1px;
+    padding: 10px;
+}
+
+.news-feed-form .options-message {
+    margin-top: 7px;
+    margin-left: 24px;
+}
+
+.col {
+    margin-bottom: 15px;
+}
+.upload-photo-item input[type="file"]{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  opacity: 0;
+  cursor: pointer;
+}
+.update-header-photo .modal-content {
+    width: 100%;
+}
+.icon-close {
+    top: 15px;
+    right: 15px;
+}
+.modal-header h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    min-height: 0;
+}
+.image-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: inline-block;
+}
+.image-container img {
+    width: 160px;
+    padding: 20px;
+}
+
+.remove-image .olymp-close-icon{
+    height: 14px;
+    width: 14px;
+}
+
+textarea.ng-invalid.ng-touched, input.ng-invalid.ng-touched, select.ng-invalid.ng-touched{
+    border:1px solid red;
+}
+.author-thumb img {
+    height: 40px;
+    width: 40px;
+}

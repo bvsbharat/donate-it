@@ -1,0 +1,40 @@
+.mobile-app-tabs.nav-tabs {
+    border-bottom: none;
+    .nav-link::after, .nav-link::before {
+        content: "";
+        border: none;
+    }
+
+}
+
+.search-result{
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+}
+
+.search-scrool{
+    max-height: 150px;
+    overflow: scroll;
+}
+
+.search-notification-list{
+    width: 100%;
+    div.author-thumb{
+        vertical-align: top;
+    }
+}
+
+.author-thumb img{
+    width: 40px;
+    margin-right:4px; 
+}
+
+.logo-title{
+    width: 100%;
+    display: block;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    padding-top: 10%;
+}

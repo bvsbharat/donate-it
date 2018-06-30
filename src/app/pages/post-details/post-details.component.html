@@ -1,0 +1,174 @@
+
+<div class="header-spacer">
+  </div>
+
+
+<div class="container" *ngIf="postData != undefined">
+	<div class="row">
+		<div class="col col-xl-12">
+		</div>
+    <div class="ui-block">
+
+
+        <article class="hentry post">
+
+          <div class="post__author author vcard inline-items">
+            <img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="postData.postedBy.type !='ngo'">
+
+            <img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="postData.postedBy.type =='ngo'">
+
+            <div class="author-date">
+              <a class="h6 post__author-name fn" href="javascript:void(0)">{{postData.postedBy.name}}</a>
+              <div class="post__date">
+                <time class="published" datetime="2004-07-24T18:18">
+                  {{postData.createdAt | amDateFormat:'LL HH:mm'}}
+                </time>
+              </div>
+            </div>
+
+            <div class="more" *ngIf="postData.isPostActive && userId == postData.postedBy._id">
+              <svg class="olymp-three-dots-icon">
+                <use xlink:href="/assets/img/icons.svg#olymp-three-dots-icon"></use>
+              </svg>
+              <ul class="more-dropdown">
+                <li>
+                  <a href="javascript:void(0)" (click)="navigateEdit(postData._id)">Edit Post</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)" (click)="deletePost(postData._id)">Delete Post</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">Turn Off Notifications</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">Select as Featured</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <p>{{postData.description}}
+          </p>
+
+          <div class="col-md-8 mr-auto ml-auto">
+              <div class="card page-carousel">
+                  <ngb-carousel *ngIf="postData.images.length===0">
+                      <ng-template ngbSlide>
+                          <img src="../assets/img/soroush-karimi.jpg" alt="Random first slide">
+                          <div class="carousel-caption">
+                              <p>Somewhere</p>
+                          </div>
+                      </ng-template>
+                      <ng-template ngbSlide>
+                          <img src="../assets/img/federico-beccari.jpg" alt="Random second slide">
+                          <div class="carousel-caption">
+                              <p>Somewhere else</p>
+                          </div>
+                      </ng-template>
+                      <ng-template ngbSlide>
+                          <img src="../assets/img/joshua-stannard.jpg" alt="Random third slide">
+                          <div class="carousel-caption">
+                              <p>Here it is</p>
+                          </div>
+                      </ng-template>
+                  </ngb-carousel>
+                  <ngb-carousel *ngIf="postData.images.length>0">
+                      <ng-template ngbSlide *ngFor="let entry of postData.images; let i = index">
+                          <img src="{{entry.reference}}" alt="Random first slide">
+                          <div class="carousel-caption">
+                              <p>{{postData.category}}</p>
+                          </div>
+                      </ng-template>
+                </ngb-carousel>
+              </div>
+          </div>
+          <div class="post-additional-info inline-items">
+            <div class="comments-shared">
+              <a href="javascript:void(0)" class="post-add-icon inline-items">
+                <svg class="olymp-speech-balloon-icon">
+                  <use xlink:href="/assets/img/icons.svg#olymp-speech-balloon-icon"></use>
+                </svg>
+                <span>{{postData.commentCount}}</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Comments -->
+
+        <ul class="comments-list">
+          <li class="comment-item">
+            <div class="post__author author vcard inline-items">
+            <img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="postData.postedBy.type !='ngo'">
+
+            <img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="postData.postedBy.type =='ngo'">
+
+              <div class="author-date">
+                <a class="h6 post__author-name fn" href="02-ProfilePage.html">James Spiegel</a>
+                <div class="post__date">
+                  <time class="published" datetime="2004-07-24T18:18">
+                    38 mins ago
+                  </time>
+                </div>
+              </div>
+
+              <a href="javascript:void(0)" class="more">
+                <svg class="olymp-three-dots-icon">
+                  <use xlink:href="/assets/img/icons.svg#olymp-three-dots-icon"></use>
+                </svg>
+              </a>
+
+            </div>
+
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium der doloremque laudantium.</p>
+
+            <a href="javascript:void(0)" class="post-add-icon inline-items">
+              <svg class="olymp-heart-icon">
+                <use xlink:href="/assets/img/icons.svg#olymp-heart-icon"></use>
+              </svg>
+              <span>3</span>
+            </a>
+            <a href="javascript:void(0)" class="reply">Reply</a>
+          </li>
+        </ul>
+
+        <!-- ... end Comments -->
+
+        <a href="javascript:void(0)" class="more-comments">View more comments
+          <span>+</span>
+        </a>
+
+
+        <!-- Comment Form  -->
+
+        <form class="comment-form inline-items">
+
+          <div class="post__author author vcard inline-items">
+           
+            <img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="postData.postedBy.type !='ngo'">
+
+            <img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="postData.postedBy.type =='ngo'">
+
+            <div class="form-group with-icon-right ">
+              <textarea class="form-control" name="commentsposted" [(ngModel)]='commentsposted' placeholder=""></textarea>
+              <div class="add-options-message">
+                <a href="javascript:void(0)" class="options-message" data-toggle="modal" data-target="#update-header-photo">
+                  <svg class="olymp-camera-icon">
+                    <use xlink:href="/assets/img/icons.svg#olymp-camera-icon"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-md-2 btn-primary" (click)="postcomment()">Post Comment</button>
+
+          <button class="btn btn-md-2 btn-border-think c-grey btn-transparent custom-color">Cancel</button>
+
+        </form>
+
+        <!-- ... end Comment Form  -->
+      </div>
+	</div>
+</div>

@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from './shared/guards/auth-guard.service';
 
-import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -18,7 +17,6 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'profile', component: ProfileComponent,canActivate: [AuthGuard]}, // canActivate: [AuthGuard] 
   { path: 'postDetails/:id', component: PostDetailsComponent,canActivate: [AuthGuard] },
-  { path: 'home', component: HomeComponent,canActivate: [AuthGuard] },
   { path: 'PostDetails', component: PostDetailsComponent,canActivate: [AuthGuard] },
   { path: 'editDetails/:id', component: EditDetailsComponent,canActivate: [AuthGuard] },
   { path: '', redirectTo: 'login', pathMatch: 'full',canActivate: [AuthGuard]},

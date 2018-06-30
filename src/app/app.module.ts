@@ -15,12 +15,9 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 
 import { SignupComponent } from './pages/signup/signup.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AuthGuard } from './shared/guards/auth-guard.service';
-
-import { HomeModule } from './pages/home/home.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { WidgetContainerComponent } from './shared/widget-container/widget-container.component';
 import { NewPostComponent } from './shared/new-post/new-post.component';
@@ -62,7 +59,6 @@ import { EditDetailsComponent } from './pages/edit-details/edit-details.componen
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    HomeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,

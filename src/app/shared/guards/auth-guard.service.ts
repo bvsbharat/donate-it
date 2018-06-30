@@ -13,7 +13,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     if (sessionStorage.getItem('userInfo')) {
       return true;
     }
-    alert("User session expired / not logged in");
     this.router.navigate(['/login']);
     return false;
   }

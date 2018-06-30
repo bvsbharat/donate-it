@@ -64,3 +64,9 @@ textarea.form-control:focus{
 a.notification-title{
     color: #f9da6b;
 }
+
+.thank-msg{
+    color:orange;
+    font-weight: 700;
+
+}

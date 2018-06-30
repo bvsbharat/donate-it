@@ -110,23 +110,35 @@
 	
 				</div>
 	
-	
-	
-		  <div class="widget w-birthday-alert post-card-charity">
-			
-					<div class="video-content">
-						<a href="javascript:void(0)" class="notification-friend notification-title"><b>{{entry.title}} </b></a>
-						<p class="text-ellipsis">
-							{{entry.description | truncate : 300 }}
-						</p>
-						
-						<div class="row">
-							<span class="col-md-8 post-details pull-right"> <b>Quantity In Hand:</b>{{entry.quantityInHand}} </span>
-							<span class="col-md-4 post-details pull-right"> <b>Quantity Required:</b> {{entry.quantityRequired}} </span>
+
+
+				<div class="post-video">
+						<div   class="video-thumb">
+						  <img *ngIf="entry?.images.length>0" [src]="entry.images[0].reference" alt="photo">
+						  <img *ngIf="!entry.images.length>0"  src="{{'/assets/img/'+entry.category+'_thmb.jpg'}}" alt="photo">
 						</div>
-					</div>
-	
-				</div>
+								<div class="video-content">
+									<a href="javascript:void(0)" class="notification-friend "><b>{{entry.title | truncate : 50}} </b></a>
+									<p>
+											{{entry.description | truncate : 300 }}
+									</p>
+									<div class="row thank-msg" *ngIf="(entry.quantityInHand+1) > entry.quantityRequired; else thankyou">
+											<span class="col-md-12">
+													Thank you for donation our requirement is fulfilled !
+												</span>
+									</div>
+									<ng-template #thankyou>
+											<div class="row " >
+													
+											
+											<span class="col-md-6 post-details pull-right"> <b>Quantity In Hand:</b>{{entry.quantityInHand}} </span>
+											<span class="col-md-6 post-details pull-right"> <b>Quantity Required:</b> {{entry.quantityRequired}} </span>
+										</div>
+									</ng-template>
+									
+								</div>
+				
+							</div>
 	
 				<div class="post-additional-info inline-items">
 					<div class="comments-shared">

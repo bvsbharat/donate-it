@@ -62,7 +62,7 @@ export class PostDetailsComponent implements OnInit {
     let _this = this;
     this.socketIO.emit('delete-post', id);
     this.socketIO.on('post-deleted', function (data) {
-      this.router.navigate(['/dashboard']);
+      _this.router.navigate(['/dashboard']);
     });
   }
 

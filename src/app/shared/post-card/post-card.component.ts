@@ -21,10 +21,16 @@ export class PostCardComponent implements OnInit {
   commentText = '';
   socketIO: any;
   userId: any;
+  userDetails:{
+    _id:''
+  }
   constructor(private db: AngularFireDatabase, private router: Router,private CommonService:CommonService) { }
 
   ngOnInit() {
-    this.userId = this.CommonService.getUserInformation()._id;
+
+    let sessionData = sessionStorage.getItem("userInfo");
+    this.userDetails = JSON.parse(sessionData);
+    this.userId = this.userDetails._id;
     this.socketIO = this.CommonService.getSocket();
     this.socketIO.on("fetch-latest-posts", function(response){
       console.log("response",response);

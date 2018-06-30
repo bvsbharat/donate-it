@@ -17,8 +17,8 @@ export class NewPostComponent implements OnInit {
 
   post:any = {
     description: "",
-    quantityRequired: 0,
-    ageOfProduct:0,
+    quantityRequired: 1,
+    ageOfProduct:1,
     userDetails:"",
     title:"",
     category:"Apparel",

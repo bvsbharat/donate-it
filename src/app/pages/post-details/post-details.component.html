@@ -16,7 +16,6 @@
             <img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="postData.postedBy.type !='ngo'">
 
             <img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="postData.postedBy.type =='ngo'">
-
             <div class="author-date">
               <a class="h6 post__author-name fn" href="javascript:void(0)">{{postData.postedBy.name}}</a>
               <div class="post__date">
@@ -25,6 +24,9 @@
                 </time>
               </div>
             </div>
+
+
+            <a href="javascript:void(0)"  [title]="postData.title" class="notification-friend notificatio-title "><b>{{postData.title | truncate : 150}} </b></a>
 
             <div class="more" *ngIf="postData.isPostActive && userId == postData.postedBy._id">
               <svg class="olymp-three-dots-icon">
@@ -43,7 +45,7 @@
 
           </div>
 
-          <p>{{postData.description}}
+          <p class="description-post">{{postData.description}}
           </p>
 
           <div class="col-md-10 col-sm-12 mr-auto ml-auto">

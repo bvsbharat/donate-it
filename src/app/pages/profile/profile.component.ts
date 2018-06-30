@@ -43,7 +43,7 @@ export class ProfileComponent implements OnInit {
     }
 
     getmydata(){
-        let userdetails=this.commonService.getUserInformation();
+        let userdetails = JSON.parse(localStorage.getItem("userInfo"));
         if(userdetails) {
             var userName = userdetails.name;
             this.userName = userName ? userName : this.userName;

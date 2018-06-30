@@ -35,9 +35,9 @@
           <img *ngIf="!entry.images.length>0"  src="/assets/img/default-thumbnail.jpg" alt="photo">
         </div>
 				<div class="video-content">
-					<a href="javascript:void(0)" class="notification-friend " (click)="navigateMsg(entry._id)"><b>{{entry.title}} </b></a>
+					<a href="javascript:void(0)" class="notification-friend " (click)="navigateMsg(entry._id)"><b>{{entry.title | truncate : 50}} </b></a>
 					<p>
-						{{entry.description}}
+						{{entry.description | truncate : 300}}
 					</p>
 					<div class="row">
 						<span class=" col-md-6 post-details pull-left"><b> Age of Product:</b> {{entry.ageOfProduct}} {{entry.ageOfProduct>1?'months' :'month'}}</span>

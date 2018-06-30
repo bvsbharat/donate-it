@@ -109,6 +109,7 @@ export class NewPostComponent implements OnInit {
         if(response.success) {
             _this.socketIO.emit("fetch-latest-posts");
             _this.commonService.setUserInformation(responseData[0]);
+            _this.uploadedImageUrls = [];
         } else {
            alert("Error in Posting donation");
         }

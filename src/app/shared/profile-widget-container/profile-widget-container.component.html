@@ -8,13 +8,28 @@
 
 					<!-- W-Personal-Info -->
 
-					<ul class="widget w-personal-info item-block">
+					<ul class="widget w-personal-info item-block" *ngIf="userType == 'ngo'">
+						<li>
+							<span class="title">About our NGO:</span>
+							<span class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</span>
+						</li>
+						<li>
+							<span class="title">When we started:</span>
+							<span class="text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+						</li>
+						<li>
+							<span class="title">Previous year work:</span>
+							<span class="text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+						</li>
+					</ul>
+
+					<ul class="widget w-personal-info item-block" *ngIf="userType != 'ngo'">
 						<li>
 							<span class="title">About Me:</span>
 							<span class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</span>
 						</li>
 						<li>
-							<span class="title">Favourite TV Shows:</span>
+							<span class="title">Work Details:</span>
 							<span class="text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
 						</li>
 						<li>
@@ -22,7 +37,6 @@
 							<span class="text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
 						</li>
 					</ul>
-
 
 					<!-- ... end W-Socials -->
 				</div>

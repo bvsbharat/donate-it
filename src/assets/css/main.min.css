@@ -646,6 +646,9 @@ blockquote p:before {
     .admin-bar #site-header {
         top: 32px
     }
+    .video-thumb  {
+        max-width: 40%;
+    }
 }
 
 #site-header .header-menu {

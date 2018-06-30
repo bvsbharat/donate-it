@@ -2542,7 +2542,7 @@ select {
 }
 
 .mobile-app .comment-form .form-group {
-    width: 80%
+    width: 100%
 }
 
 .mobile-app .ui-block {
@@ -8742,7 +8742,10 @@ ol ol li {
 
 @media (max-width:480px) {
     .comment-form .form-group {
-        width: 80%
+        width: 100%
+    }
+    a.notificatio-title[_ngcontent-c2] {
+        margin-left: 0px;
     }
 }
 

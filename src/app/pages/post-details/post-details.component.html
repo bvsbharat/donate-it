@@ -116,20 +116,11 @@
         <form class="comment-form inline-items">
 
           <div class="post__author author vcard inline-items">
-           
-            <img src="/assets/img/avatar2-sm.jpg" alt="author" *ngIf="postData.postedBy.type !='ngo'">
-
-            <img src="/assets/img/avatar3-sm.jpg" alt="author" *ngIf="postData.postedBy.type =='ngo'">
-
-            <div class="form-group with-icon-right ">
+            <div class="form-group">
               <textarea class="form-control" name="commentsposted" [(ngModel)]='commentsposted' placeholder=""></textarea>
             </div>
           </div>
-
           <button class="btn btn-md-2 btn-primary" (click)="postcomment(postData._id)">Post Comment</button>
-
-          <button class="btn btn-md-2 btn-border-think c-grey btn-transparent custom-color"  type="reset">Cancel</button>
-
         </form>
 
         <!-- ... end Comment Form  -->

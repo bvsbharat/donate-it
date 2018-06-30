@@ -24,7 +24,7 @@ export class PostDetailsComponent implements OnInit {
   ngOnInit() {
     let _this = this;
     this.socketIO = this.CommonService.getSocket();
-    let sessionData = sessionStorage.getItem("userInfo");
+    let sessionData = localStorage.getItem("userInfo");
     this.userData = JSON.parse(sessionData);
     this.userId = this.userData._id;
 

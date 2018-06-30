@@ -28,7 +28,7 @@ export class PostCardComponent implements OnInit {
 
   ngOnInit() {
 
-    let sessionData = sessionStorage.getItem("userInfo");
+    let sessionData = localStorage.getItem("userInfo");
     this.userDetails = JSON.parse(sessionData);
     this.userId = this.userDetails._id;
     this.socketIO = this.CommonService.getSocket();

@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    let sessionData = sessionStorage.getItem("userInfo");
+    let sessionData = localStorage.getItem("userInfo");
     this.userDetails = JSON.parse(sessionData);
     console.log("getIndo", this.userDetails.type);
     this.socketIO = this.commonService.getSocket();

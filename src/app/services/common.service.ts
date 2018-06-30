@@ -37,14 +37,14 @@ export class CommonService {
   setUserInformation(info) {
     this.userInfo = info;
     if(info) {
-      sessionStorage.setItem("userInfo", JSON.stringify(info));
+      localStorage.setItem("userInfo", JSON.stringify(info));
     }
   }
   getUserInformation() {
     var userData = this.userInfo;
     try{
       if(this.userInfo._id === "") {
-        var sessionData = sessionStorage.getItem("userInfo");
+        var sessionData = localStorage.getItem("userInfo");
         userData = JSON.parse(sessionData);
       }
       return userData;
@@ -53,6 +53,6 @@ export class CommonService {
     } 
   }
   clearUserInformation() {
-    sessionStorage.removeItem("userInfo");
+    localStorage.removeItem("userInfo");
   }
 }

@@ -25,7 +25,7 @@ export class EditDetailsComponent implements OnInit {
     let that = this;
     this.socketIO = this.commonService.getSocket();
     this.socketIO.emit("search-one-post", routeParams.id);
-    let sessionData = sessionStorage.getItem("userInfo");
+    let sessionData = localStorage.getItem("userInfo");
     this.userData = JSON.parse(sessionData);
 
   }

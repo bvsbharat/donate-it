@@ -44,7 +44,7 @@ export class NewPostComponent implements OnInit {
 
   ngOnInit() {
     this.socketIO = this.commonService.getSocket();
-    let sessionData = sessionStorage.getItem("userInfo");
+    let sessionData = localStorage.getItem("userInfo");
     this.userDetails = JSON.parse(sessionData);
     this.init();
     console.log("from post",this.userType);

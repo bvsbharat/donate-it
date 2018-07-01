@@ -93,7 +93,7 @@
 						</div>
 					</div>
 	
-					<div class="more" [hidden]="entry.isPostActive && userId != entry.postedBy._id">
+					<div class="more" [hidden]="userId != entry.postedBy._id">
 						<svg class="olymp-three-dots-icon">
 							<use xlink:href="/assets/img/icons.svg#olymp-three-dots-icon"></use>
 						</svg>

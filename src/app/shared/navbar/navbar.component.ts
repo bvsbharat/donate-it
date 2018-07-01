@@ -42,7 +42,7 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnDestroy(){
-        this.removelisner();
+        // this.removelisner();
         console.log("distroy");
       }
     
@@ -57,7 +57,8 @@ export class NavbarComponent implements OnInit {
     inIt() {
        let  _this = this;
         this.socketIO.on('post-results-fetched', function (data) {
-            if (data.success) {
+            if (data) {
+                this.removeAllListeners();
                 _this.searchResult = data.data;
             } 
             console.log("search data", _this.searchResult.length);
@@ -70,6 +71,7 @@ export class NavbarComponent implements OnInit {
     }
 
     filterBasedOnCategory(title) {
+        this.inIt();
         let _this = this;
         this.showResult = true;
         this.socketIO.emit('filter-search', {

@@ -50,6 +50,21 @@ export class NewPostComponent implements OnInit {
     console.log("from post",this.userType);
   }
 
+
+
+  ngOnDestroy(){
+    this.removelisner();
+    console.log("distroy");
+  }
+
+  removelisner(){
+    console.log("removed");
+    let list = ["post-in-detail","post-updated","new-post-done"];
+    for(let i=0; i < list.length; i++){
+      this.socketIO.removeAllListeners(list[i]);
+    }
+  }
+
   init(){
     let _this = this;
     this.title = this.userType ==  'ngo' ? 'Request a ' : ' Post a';
@@ -110,6 +125,7 @@ export class NewPostComponent implements OnInit {
             _this.socketIO.emit("fetch-latest-posts");
             _this.commonService.setUserInformation(responseData[0]);
             _this.uploadedImageUrls = [];
+            _this.post.images = [];
         } else {
            console.log("Error in Posting donation");
         }

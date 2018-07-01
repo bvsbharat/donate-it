@@ -41,6 +41,19 @@ export class NavbarComponent implements OnInit {
         this.inIt();
     }
 
+    ngOnDestroy(){
+        this.removelisner();
+        console.log("distroy");
+      }
+    
+      removelisner(){
+        console.log("removed");
+        let list = ["post-results-fetched"];
+        for(let i=0; i < list.length; i++){
+          this.socketIO.removeAllListeners(list[i]);
+        }
+      }
+
     inIt() {
        let  _this = this;
         this.socketIO.on('post-results-fetched', function (data) {

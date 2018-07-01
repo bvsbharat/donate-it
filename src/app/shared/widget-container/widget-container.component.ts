@@ -32,6 +32,8 @@ export class WidgetContainerComponent implements OnInit {
     this.getActivityFeed();
   }
 
+  
+
   /**
    * updates the filter
    * @param  {void}
@@ -58,6 +60,19 @@ export class WidgetContainerComponent implements OnInit {
         console.log("Error in activityFeed Posts", response);
       }
     });
+  }
+
+  ngOnDestroy(){
+    this.removelisner();
+    console.log("distroy");
+  }
+
+  removelisner(){
+    console.log("feed-fetched removed");
+    let list = ["feed-fetched"];
+    for(let i=0; i < list.length; i++){
+      this.socketIO.removeAllListeners(list[i]);
+    }
   }
 
   navigateMsg(id){

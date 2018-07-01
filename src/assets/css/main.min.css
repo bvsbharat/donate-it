@@ -8710,9 +8710,9 @@ ol ol li {
     height: 60px
 }
 
-.comment-form textarea:focus {
+/* .comment-form textarea:focus {
     min-height: 100px
-}
+} */
 
 .comment-form button {
     float: right;

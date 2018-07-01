@@ -42,6 +42,19 @@ export class ProfileComponent implements OnInit {
         });
     }
 
+    ngOnDestroy(){
+        this.removelisner();
+        console.log("distroy");
+      }
+    
+      removelisner(){
+        console.log("profile removed");
+        let list = ["post-results-fetched","post-deleted"];
+        for(let i=0; i < list.length; i++){
+          this.socketIO.removeAllListeners(list[i]);
+        }
+      }
+
     getmydata(){
         let userdetails = JSON.parse(localStorage.getItem("userInfo"));
         if(userdetails) {
@@ -60,5 +73,6 @@ export class ProfileComponent implements OnInit {
         });
       }
 
+      
 
 }

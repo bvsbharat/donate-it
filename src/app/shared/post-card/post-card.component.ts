@@ -32,33 +32,19 @@ export class PostCardComponent implements OnInit {
     this.userDetails = JSON.parse(sessionData);
     this.userId = this.userDetails._id;
     this.socketIO = this.CommonService.getSocket();
-    this.socketIO.on("fetch-latest-posts", function(response){
-      console.log("response",response);
-      var responseData = response.data;
-      console.log("response",responseData);
-      if(response.success && responseData.length > 0) {
-        this.comments=responseData;
-      } else {
-         console.log("Error in Posting donation");
-      }
-  });
-  this.init();
+    this.init();
   }
 
   init(){
     console.log(this.postData)
   }
 
-  // addComments(index,ele) {
-  //   this.comments = this.db.list('posts/'+index+'/answer');
-  //   this.comments.push({
-  //     "text": ele.value,
-  //     "user": "59b64457ece714000420c94f",
-  //     "likes": [
+  ngOnDestroy(){
+    console.log("distroy from post");
+    this.socketIO.removeAllListeners('new-donation-added');
+  }
 
-  //     ]
-  //   })
-  // }
+
 
   getCourses(listPath): Observable<any[]> {
     return this.db.list(listPath).valueChanges();

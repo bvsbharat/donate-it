@@ -37,8 +37,12 @@ export class DashboardComponent implements OnInit {
   init() {
     var _this = this;
     _this.socketIO.emit('fetch-all-posts');
-    _this.socketIO.emit('fetch-latest-posts');
     // // on post of new method 
+    this.allSubscribeEvent();
+  }
+
+  allSubscribeEvent(){
+    let _this = this;
     this.socketIO.on("new-post-done", function (response) {
       console.log("response", response);
       var responseData = response.data;
@@ -65,7 +69,25 @@ export class DashboardComponent implements OnInit {
       _this.filterBasedOnCategory('', val[0]);
     });
 
+    this.socketIO.on('post-deleted', function (data) {
+      _this.socketIO.emit('fetch-all-posts');
+    });
+
   }
+
+  ngOnDestroy(){
+    this.removelisner();
+    console.log("distroy");
+  }
+
+  removelisner(){
+    console.log("removed");
+    let list = ["new-post-done","post-results-fetched","post-deleted"];
+    for(let i=0; i < list.length; i++){
+      this.socketIO.removeAllListeners(list[i]);
+    }
+  }
+  
 
   updatePostData(data) {
     let array = [];
@@ -83,9 +105,7 @@ export class DashboardComponent implements OnInit {
   updateOnDelete(id) {
     let _this = this;
     this.socketIO.emit('delete-post', id);
-    this.socketIO.on('post-deleted', function (data) {
-      _this.socketIO.emit('fetch-all-posts');
-    });
+ 
   }
 
   filterBasedOnCategory(title, category) {
@@ -93,13 +113,6 @@ export class DashboardComponent implements OnInit {
     this.socketIO.emit('filter-search', {
       title: title,
       category: category
-    });
-  }
-
-  getActivityFeed() {
-    this.socketIO.on('post-results-fetched', function (data) {
-      console.log('activityFeed', data.data);
-      this.activityFeed = data.data;
     });
   }
 

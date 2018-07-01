@@ -48,10 +48,9 @@ export class PostDetailsComponent implements OnInit {
 
   postcomment(id){
     let _this = this;
-    let userdetails=this.CommonService.getUserInformation();
     this.socketIO.emit("create-comment", {
-      post:{_id:id},
-      postedBy:userdetails["_id"],
+      post:{_id:this.postId.id},
+      postedBy:this.userData._id,
       description:this.commentsposted
     });
     this.socketIO.on('new-comment-added', function (data) {
@@ -63,18 +62,25 @@ export class PostDetailsComponent implements OnInit {
     })
   }
 
-  navigateEdit(id){
-    this.router.navigate(['/editDetails', id])
+  navigateEdit(){
+    this.router.navigate(['/editDetails', this.postId.id])
   }
 
 
-  deletePost(id){
+  deletePost(){
     let _this = this;
-    this.socketIO.emit('delete-post', id);
+    this.socketIO.emit('delete-post', this.postId.id);
     this.socketIO.on('post-deleted', function (data) {
       _this.router.navigate(['/dashboard']);
     });
   }
 
+  deleteComment(id){
+    let _this = this;
+    this.socketIO.emit('delete-comment', {id:id,postID:this.postId.id});
+    this.socketIO.on('comment-delete', function (data) {
+      _this.init();
+    });
+  }
 
 }

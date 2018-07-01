@@ -34,10 +34,10 @@
               </svg>
               <ul class="more-dropdown">
                 <li>
-                  <a href="javascript:void(0)" (click)="navigateEdit(postData._id)">Edit Post</a>
+                  <a href="javascript:void(0)" (click)="navigateEdit()">Edit Post</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0)" (click)="deletePost(postData._id)">Delete Post</a>
+                  <a href="javascript:void(0)" (click)="deletePost()">Delete Post</a>
                 </li>
                
               </ul>
@@ -91,11 +91,20 @@
                 </div>
               </div>
 
-              <a href="javascript:void(0)" class="more">
+           
+
+              <div class="more" *ngIf="userId == comment.postedBy._id">
                 <svg class="olymp-three-dots-icon">
                   <use xlink:href="/assets/img/icons.svg#olymp-three-dots-icon"></use>
                 </svg>
-              </a>
+                <ul class="more-dropdown">
+                  <li>
+                    <a href="javascript:void(0)" (click)="deleteComment(comment.postedBy._id)">Delete comment</a>
+                  </li>
+                 
+                </ul>
+              </div>
+
 
             </div>
 
@@ -120,7 +129,7 @@
               <textarea class="form-control" name="commentsposted" [(ngModel)]='commentsposted' placeholder=""></textarea>
             </div>
           </div>
-          <button class="btn btn-md-2 btn-primary" (click)="postcomment(postData._id)">Post Comment</button>
+          <button class="btn btn-md-2 btn-primary" (click)="postcomment()">Post Comment</button>
         </form>
 
         <!-- ... end Comment Form  -->

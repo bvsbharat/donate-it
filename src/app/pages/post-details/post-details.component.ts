@@ -49,7 +49,7 @@ export class PostDetailsComponent implements OnInit {
   postcomment(id){
     let _this = this;
     this.socketIO.emit("create-comment", {
-      post:{_id:this.postId.id},
+      post:{_id:id},
       postedBy:this.userData._id,
       description:this.commentsposted
     });
@@ -77,7 +77,7 @@ export class PostDetailsComponent implements OnInit {
 
   deleteComment(id){
     let _this = this;
-    this.socketIO.emit('delete-comment', {id:id,postID:this.postId.id});
+    this.socketIO.emit('delete-comment', {id:id._id,postID:id.post});
     this.socketIO.on('comment-delete', function (data) {
       _this.init();
     });

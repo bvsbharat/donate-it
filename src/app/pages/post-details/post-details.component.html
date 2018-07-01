@@ -99,7 +99,7 @@
                 </svg>
                 <ul class="more-dropdown">
                   <li>
-                    <a href="javascript:void(0)" (click)="deleteComment(comment.postedBy._id)">Delete comment</a>
+                    <a href="javascript:void(0)" (click)="deleteComment(comment)">Delete comment</a>
                   </li>
                  
                 </ul>
@@ -129,7 +129,7 @@
               <textarea class="form-control" name="commentsposted" [(ngModel)]='commentsposted' placeholder=""></textarea>
             </div>
           </div>
-          <button class="btn btn-md-2 btn-primary" (click)="postcomment()">Post Comment</button>
+          <button class="btn btn-md-2 btn-primary" (click)="postcomment(postData._id)">Post Comment</button>
         </form>
 
         <!-- ... end Comment Form  -->

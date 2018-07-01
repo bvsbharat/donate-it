@@ -39,7 +39,7 @@ export class PostCardComponent implements OnInit {
       if(response.success && responseData.length > 0) {
         this.comments=responseData;
       } else {
-         alert("Error in Posting donation");
+         console.log("Error in Posting donation");
       }
   });
   this.init();

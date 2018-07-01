@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
     userLoginFail: boolean = false;
     ngOnInit() {
         let userId = this.commonService.getUserInformation();
-        if (userId._id) {
+        if (userId) {
             this.router.navigate(['/dashboard']);
         }
         this.userType = "donor";

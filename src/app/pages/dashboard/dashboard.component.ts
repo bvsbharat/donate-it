@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
     this.init();
   }
 
+ 
   init() {
     var _this = this;
     _this.socketIO.emit('fetch-all-posts');
@@ -45,7 +46,7 @@ export class DashboardComponent implements OnInit {
         _this.commonService.setUserInformation(responseData[0]);
         _this.socketIO.emit('fetch-all-posts');
       } else {
-        alert("Error in Posting donation");
+        console.log("Error in Posting donation");
       }
     });
     // feacth data on db actions 
@@ -63,7 +64,7 @@ export class DashboardComponent implements OnInit {
       console.log(val);
       _this.filterBasedOnCategory('', val[0]);
     });
-    
+
   }
 
   updatePostData(data) {

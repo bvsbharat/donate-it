@@ -58,7 +58,7 @@ export class NewPostComponent implements OnInit {
       if(response.success) {
         _this.post = response.data;
       } else {
-        alert("Error in Posting donation");
+        console.log("Error in Posting donation");
       }
     });
   }
@@ -96,7 +96,7 @@ export class NewPostComponent implements OnInit {
         if(response.success) {
           _this.router.navigate(['/dashboard']);
         } else {
-           alert("Error in Posting donation");
+           console.log("Error in Posting donation");
         }
       });
     }
@@ -111,7 +111,7 @@ export class NewPostComponent implements OnInit {
             _this.commonService.setUserInformation(responseData[0]);
             _this.uploadedImageUrls = [];
         } else {
-           alert("Error in Posting donation");
+           console.log("Error in Posting donation");
         }
       });
       //this.clearPost();

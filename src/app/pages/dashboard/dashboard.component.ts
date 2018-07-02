@@ -76,7 +76,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnDestroy(){
-    this.removelisner();
+    // this.removelisner();
     console.log("distroy");
   }
 

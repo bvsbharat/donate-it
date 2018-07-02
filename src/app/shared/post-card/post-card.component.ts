@@ -41,7 +41,7 @@ export class PostCardComponent implements OnInit {
 
   ngOnDestroy(){
     console.log("distroy from post");
-    this.socketIO.removeAllListeners('new-donation-added');
+    // this.socketIO.removeAllListeners('new-donation-added');
   }
 
 
@@ -83,8 +83,6 @@ export class PostCardComponent implements OnInit {
           }
 
       });
-
-
   }
 
   deletePost(id){

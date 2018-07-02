@@ -53,7 +53,7 @@ export class NewPostComponent implements OnInit {
 
 
   ngOnDestroy(){
-    this.removelisner();
+    // this.removelisner();
     console.log("distroy");
   }
 

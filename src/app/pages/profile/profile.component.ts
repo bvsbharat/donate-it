@@ -43,7 +43,7 @@ export class ProfileComponent implements OnInit {
     }
 
     ngOnDestroy(){
-        this.removelisner();
+        // this.removelisner();
         console.log("distroy");
       }
     

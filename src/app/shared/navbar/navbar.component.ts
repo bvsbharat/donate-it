@@ -58,7 +58,7 @@ export class NavbarComponent implements OnInit {
        let  _this = this;
         this.socketIO.on('post-results-fetched', function (data) {
             if (data) {
-                this.removeAllListeners();
+             //   this.removeAllListeners();
                 _this.searchResult = data.data;
             } 
             console.log("search data", _this.searchResult.length);
